@@ -1,9 +1,8 @@
 
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Player from './Player';
-
+import CodecForm from './CodecForm'
 class App extends Component {
   render() {
     return (
@@ -12,6 +11,7 @@ class App extends Component {
           <div className="codec-col-2"></div>
           <div className="codec-col-8">
             <h2>Codec App</h2>
+            <CodecForm />
           </div>
           <div className="codec-col-2"></div>
         </div>

@@ -15,9 +15,13 @@ class CodecForm extends Component {
     this.setState({key: e.target.value})
   };
 
+  handleCodecSubmit = (e) => {
+    e.preventDefault()
+    this.props.performCodec(this.state.message,this.state.key)
+  }
   render(){
     return(
-      <form>
+      <form onSubmit={this.handleCodecSubmit}>
         <div className="codec-row">
           <div className="codec-col-6">
             <input

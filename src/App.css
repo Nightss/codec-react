@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -27,6 +27,123 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(180deg);
   }
+} */
+/* Appendix */
+/*
+  Global:
+    Grid System
+    Background
+    Nav
+
+  Pages:
+*/
+/* End Appendix */
+
+/* Grid Systsem */
+.codec-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.codec-container *{
+  box-sizing: border-box;
+}
+.codec-row:before, .codec-row:after {
+  content:"";
+  display: table ;
+  clear:both;
+}
+
+[class*='codec-col-'] {
+  width: 8.33%;
+  min-height: 1px;
+  float: left;
+}
+
+.codec-col-1 {
+  width: 8.33%;
+}
+.codec-col-2 {
+  width: 16.66%;
+}
+.codec-col-3 {
+  width: 25%;
+}
+.codec-col-4 {
+  width: 33.33%;
+}
+.codec-col-5 {
+  width: 41.66%;
+}
+.codec-col-6 {
+  width: 50%;
+}
+.codec-col-7 {
+  width: 58.33%;
+}
+.codec-col-8 {
+  width: 66.66%;
+}
+.codec-col-9 {
+  width: 75%;
+}
+.codec-col-10 {
+  width: 83.33%;
+}
+.codec-col-11 {
+  width: 91.66%;
+}
+.codec-col-12 {
+  width: 100%;
+}
+
+.codec-col-20 {
+  width: 20%;
+}
+
+.codec-col-80 {
+  width: 80%;
+}
+/* End of Grid Systems */
+
+/* Head */
+.codec-head {
+  min-height: 200px;
+  max-height: 200px;
+  padding: 0px 5px 0px 5px;
+}
+/* End Head */
+
+/* Call To Action */
+.codec-call-to-action {
+  text-align: center;
+}
+/* End of Call To Action */
+
+/*  Main */
+#codec-main {
+  width: 100%;
+  min-height: 535px;
+  max-height: 535px;
+  overflow-y: scroll;
+}
+
+.codec-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.codec-card {
+  background-color: black;
+  width: 250px;
+  height: 300px;
+  margin-top: 30px;
+  margin-right: 50px;
 }

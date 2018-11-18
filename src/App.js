@@ -13,13 +13,16 @@ class App extends Component {
   alphabet = "abcdefghijklmnopqrstuvwxyz"
 
   performCodec = (message,key) => {
+    console.log(`message: ${message}, key: ${key}`)
+    console.log(message)
     let codec_message = ""
     for (let char of message) {
       let position = this.alphabet.indexOf(char.toLowerCase())
-      let codec_key
-      let strong
+      // let codec_key
+      // let strong
       if (position !== -1) {
-        strong = char === char.toUpperCase() ? true : false
+        let codec_key
+        let strong = char === char.toUpperCase() ? true : false
         if (position + parseInt(key) > 25) {
           codec_key = position + parseInt(key) - this.alphabet.length
         } else {

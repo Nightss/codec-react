@@ -1,29 +1,27 @@
 import React, { Component } from 'react'
 import './App.css'
 
+
 class CodecForm extends Component {
   state = {
-    message: "",
     key: "",
     error: "",
     disabled: true
   };
 
-  handleMessageChange = (e) => {
-    this.setState({message: e.target.value})
-  };
+  messageInput = React.createRef();
 
   handleKeyChange = (e) => {
-    let key = e.target.value
-    if (parseInt(key) && parseInt(key) >= 0 && parseInt(key) <= 25 ) {
+    let key = parseInt(e.target.value)
+    if (key && key >= 0 && key <= 25 ) {
       this.setState({
-        key: key,
+        key: e.target.value,
         error: "",
         disabled: false
       })
     } else {
       this.setState({
-        key: key,
+        key: e.target.value,
         error: "Error: You must enter a number between 0 and 25",
         disabled: true
       })
@@ -32,21 +30,21 @@ class CodecForm extends Component {
 
   handleCodecSubmit = (e) => {
     e.preventDefault()
-    this.props.performCodec(this.state.message,this.state.key)
+    this.props.performCodec(this.messageInput.current.value,this.state.key)
   }
+
   render(){
     return(
       <form onSubmit={this.handleCodecSubmit}>
         <div className="codec-row">
           <div className="codec-col-12">
-            <h2>{this.state.error}</h2>
+            <span>{this.state.error}</span>
           </div>
           <div className="codec-col-6">
             <input
               type="text"
-              value={this.state.message}
+              ref={this.messageInput}
               placeholder="Enter Message"
-              onChange={this.handleMessageChange}
             />
           </div>
           <div className="codec-col-6">

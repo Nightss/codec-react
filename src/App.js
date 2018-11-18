@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Player from './Player';
-import CodecForm from './CodecForm'
-import CodecMessageHolder from './CodecMessageHolder'
+import CodecForm from './CodecForm';
+import CodecMessageHolder from './CodecMessageHolder';
 
 class App extends Component {
   state = {

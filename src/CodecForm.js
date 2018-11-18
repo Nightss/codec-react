@@ -4,7 +4,9 @@ import './App.css'
 class CodecForm extends Component {
   state = {
     message: "",
-    key: ""
+    key: "",
+    error: "",
+    disabled: true
   };
 
   handleMessageChange = (e) => {
@@ -12,7 +14,20 @@ class CodecForm extends Component {
   };
 
   handleKeyChange = (e) => {
-    this.setState({key: e.target.value})
+    let key = e.target.value
+    if (parseInt(key) && parseInt(key) >= 0 && parseInt(key) <= 25 ) {
+      this.setState({
+        key: key,
+        error: "",
+        disabled: false
+      })
+    } else {
+      this.setState({
+        key: key,
+        error: "Error: You must enter a number between 0 and 25",
+        disabled: true
+      })
+    }
   };
 
   handleCodecSubmit = (e) => {
@@ -23,6 +38,9 @@ class CodecForm extends Component {
     return(
       <form onSubmit={this.handleCodecSubmit}>
         <div className="codec-row">
+          <div className="codec-col-12">
+            <h2>{this.state.error}</h2>
+          </div>
           <div className="codec-col-6">
             <input
               type="text"
@@ -42,7 +60,11 @@ class CodecForm extends Component {
         </div>
         <div className="codec-row">
           <div className="codec-col-12">
-            <input type="submit" value="Encoded Message"/>
+            <input
+              type="submit"
+              value="Encoded Message"
+              disabled={this.state.disabled}
+            />
           </div>
         </div>
       </form>
